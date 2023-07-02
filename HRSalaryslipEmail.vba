@@ -20,6 +20,10 @@ Sub SendSalarySlips()
         Dim SubjectText As String
         SubjectText = "Salary Slip - " & Cells(i, "E").Value
         
+        'Get the month from column E
+        Dim MonthValue As String
+        MonthValue = Cells(i, "E").Value
+        
         'Get the folder path from column C
         Dim FolderPath As String
         FolderPath = Cells(i, "C").Value
@@ -27,9 +31,10 @@ Sub SendSalarySlips()
         'Create the email body
         Dim EmailBody As String
         EmailBody = "Dear Employee," & vbCrLf & vbCrLf & _
-                    "Please find the salary slip in the folder " & FolderPath & ". Password will be your PAN number in CAPS." & vbCrLf & vbCrLf & _
+                    "Please find the salary slip for the month of " & MonthValue & " in the folder " & FolderPath & "." & vbCrLf & vbCrLf & _
+                    "If you have any query, please revert to this email." & vbCrLf & vbCrLf & _
                     "Regards," & vbCrLf & _
-                    "Human Resources" & vbCrLf & _
+                    "Human Resources Department" & vbCrLf & _
                     "Aerotics Technologies LLP"
         
         'Create email item and add recipients
